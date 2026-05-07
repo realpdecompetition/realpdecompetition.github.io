@@ -230,18 +230,10 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
     var pageScale = getPageScale();
     dpr = window.devicePixelRatio || 1;
     rW = rect.width / pageScale;
+    rH = rect.height / pageScale;
 
-    /* Align canvas top to bottom of .hero-text-block so flow doesn't run under the title text */
-    var textBlock = document.querySelector('.hero-text-block');
-    var topOffset = 0;
-    if (textBlock) {
-      var tb = textBlock.getBoundingClientRect();
-      topOffset = (tb.bottom - rect.top) / pageScale;
-    }
-    rH = (rect.height / pageScale) - topOffset;
-    if (rH < 80) rH = rect.height / pageScale;  /* fallback if text overflows */
-
-    canvas.style.top = topOffset + 'px';
+    /* Canvas covers the full hero; airfoil centerY is pushed below the text block. */
+    canvas.style.top = '0';
     canvas.width = rW * dpr;
     canvas.height = rH * dpr;
     canvas.style.width = rW + 'px';
@@ -256,8 +248,16 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
       leadX = rW * 0.35;
     }
 
+    /* Place airfoil center halfway between text-block bottom and hero bottom */
+    var textBlock = document.querySelector('.hero-text-block');
+    if (textBlock) {
+      var tb = textBlock.getBoundingClientRect();
+      var textBottom = (tb.bottom - rect.top) / pageScale;
+      centerY = textBottom + (rH - textBottom) * 0.5;
+    } else {
+      centerY = rH * 0.55;
+    }
     chord = rW * 1.1;       /* 2x original — tail well off-screen */
-    centerY = rH * 0.55;    /* shifted down */
 
     buildFoilArrays();
     computeStreamlines();
