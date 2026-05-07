@@ -1133,3 +1133,16 @@ section[id] { scroll-margin-top: 76px; }
   .regime-glyph__wake,
   .regime-glyph__eddy { animation: none; }
 }
+
+/* ========================================
+   PROPORTIONAL CONTENT SCALE (mirrors realpdebench)
+   Below 768px viewport, lock layout at 768px and scale-down via transform.
+   Navbar stays at viewport width (fixed position, outside the scale wrapper).
+   ======================================== */
+.rp-scale-outer { position: relative; }
+.rp-scale-outer.rp-scale-active { overflow: hidden; }
+.rp-scale-outer.rp-scale-active .rp-scale-inner {
+  width: 768px;
+  transform: scale(var(--rp-page-scale, 1));
+  transform-origin: top left;
+}

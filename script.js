@@ -305,3 +305,48 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
   window.addEventListener('resize', resize);
   requestAnimationFrame(frame);
 })();
+
+/* ========================================
+   Proportional Content Scale (mirrors RealPDEBench)
+   Below 768px viewport, lock layout at 768px and visually scale-down via transform.
+   Navbar (fixed-position, outside .rp-scale-outer) stays at viewport width.
+   ======================================== */
+(function () {
+  var BASE = 768;
+  var outer = document.querySelector('.rp-scale-outer');
+  var inner = document.querySelector('.rp-scale-inner');
+  if (!outer || !inner) return;
+
+  var raf = null;
+  function vwidth() {
+    var vv = window.visualViewport;
+    if (vv && typeof vv.width === 'number') {
+      var s = (typeof vv.scale === 'number' && vv.scale > 0) ? vv.scale : 1;
+      return vv.width * s;
+    }
+    return window.innerWidth || document.documentElement.clientWidth || 0;
+  }
+  function update() {
+    var w = vwidth();
+    if (w > 0 && w < BASE) {
+      var scale = w / BASE;
+      outer.classList.add('rp-scale-active');
+      outer.style.setProperty('--rp-page-scale', String(scale));
+      var h = inner.scrollHeight || inner.offsetHeight || 0;
+      outer.style.height = (h * scale).toFixed(2) + 'px';
+    } else {
+      outer.classList.remove('rp-scale-active');
+      outer.style.removeProperty('--rp-page-scale');
+      outer.style.removeProperty('height');
+    }
+  }
+  function schedule() {
+    if (raf != null) return;
+    raf = window.requestAnimationFrame(function () { raf = null; update(); });
+  }
+  schedule();
+  window.addEventListener('resize', schedule);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', schedule);
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(inner);
+  window.addEventListener('load', schedule);
+})();
