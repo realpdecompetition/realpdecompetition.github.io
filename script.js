@@ -215,11 +215,22 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
   }
 
   /* --- Resize --- */
+  function getPageScale() {
+    var outer = document.querySelector('.rp-scale-outer');
+    if (!outer || !outer.classList.contains('rp-scale-active')) return 1;
+    var v = outer.style.getPropertyValue('--rp-page-scale');
+    var s = parseFloat(v);
+    return (s > 0) ? s : 1;
+  }
   function resize() {
     var hero = canvas.parentElement;
     var rect = hero.getBoundingClientRect();
+    /* getBoundingClientRect returns visual (post-transform) pixels.
+       Divide by page scale so canvas backing store stays in layout space. */
+    var pageScale = getPageScale();
     dpr = window.devicePixelRatio || 1;
-    rW = rect.width; rH = rect.height;
+    rW = rect.width / pageScale;
+    rH = rect.height / pageScale;
     canvas.width = rW * dpr;
     canvas.height = rH * dpr;
     canvas.style.width = rW + 'px';
@@ -229,7 +240,7 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
     if (span) {
       var sr = span.getBoundingClientRect();
       var hr = hero.getBoundingClientRect();
-      leadX = sr.right - hr.left;
+      leadX = (sr.right - hr.left) / pageScale;
     } else {
       leadX = rW * 0.35;
     }
@@ -303,6 +314,7 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
 
   resize();
   window.addEventListener('resize', resize);
+  window.addEventListener('rp-scale-changed', resize);
   requestAnimationFrame(frame);
 })();
 
@@ -339,6 +351,7 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
       outer.style.removeProperty('--rp-page-scale');
       outer.style.removeProperty('height');
     }
+    window.dispatchEvent(new Event('rp-scale-changed'));
   }
   function schedule() {
     if (raf != null) return;
