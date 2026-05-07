@@ -848,9 +848,7 @@ footer a { color: var(--accent-mid); }
   margin: 0 auto 14px;
   display: block;
   background: var(--lavender-light);
-  border: 5px solid #fff;
-  box-shadow: 0 8px 24px rgba(105, 98, 133, 0.10);
-  box-sizing: content-box;
+  box-shadow: 0 6px 18px rgba(105, 98, 133, 0.08);
 }
 .organizer-photo--lg {
   width: 144px;
@@ -1017,3 +1015,80 @@ section[id] { scroll-margin-top: 76px; }
   .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
   .section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); }
 }
+
+/* ========================================
+   FLOW REGIME GLYPHS (codex-generated)
+   ======================================== */
+.regime-cell--glyph {
+  position: relative;
+  padding: 4px;
+}
+.regime-glyph-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.regime-glyph {
+  --flow-w: 1.4;
+  --wake-w: 1.6;
+  --fine-w: 0.9;
+  --eddy-w: 1.1;
+  --flow-o: 0.66;
+  --fine-o: 0.54;
+  --eddy-o: 0.68;
+  width: min(68px, 88%);
+  height: min(68px, 88%);
+  display: block;
+  overflow: visible;
+}
+.regime-glyph__foil-body {
+  fill: var(--lavender-dark);
+  fill-opacity: 0.7;
+  stroke: var(--mint-dark);
+  stroke-width: 1.1;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.regime-glyph__chord,
+.regime-glyph__flow,
+.regime-glyph__wake,
+.regime-glyph__fine,
+.regime-glyph__eddy {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.regime-glyph__chord {
+  stroke: var(--mint-dark);
+  stroke-width: 0.8;
+  opacity: 0.72;
+}
+.regime-glyph__flow {
+  stroke: var(--mint-mid);
+  stroke-width: var(--flow-w);
+  opacity: var(--flow-o);
+}
+.regime-glyph__wake {
+  stroke: var(--mint-dark);
+  stroke-width: var(--wake-w);
+  opacity: 0.92;
+}
+.regime-glyph__fine {
+  stroke: var(--mint-dark);
+  stroke-width: var(--fine-w);
+  stroke-dasharray: 2.4 2.8;
+  opacity: var(--fine-o);
+}
+.regime-glyph__eddy {
+  stroke: var(--mint-dark);
+  stroke-width: var(--eddy-w);
+  opacity: var(--eddy-o);
+}
+.regime-glyph--re17 { --flow-w: 1.05; --wake-w: 1.15; --fine-w: 0.75; --eddy-w: 0.95; --flow-o: 0.74; --fine-o: 0.88; --eddy-o: 0.9; }
+.regime-glyph--re13 { --flow-w: 1.2; --wake-w: 1.3; --fine-w: 0.82; --eddy-w: 1.05; --flow-o: 0.7; --fine-o: 0.72; --eddy-o: 0.8; }
+.regime-glyph--re10 { --flow-w: 1.4; --wake-w: 1.55; --fine-w: 0.9; --eddy-w: 1.18; --flow-o: 0.66; --fine-o: 0.54; --eddy-o: 0.68; }
+.regime-glyph--re6 { --flow-w: 1.65; --wake-w: 1.85; --fine-w: 1; --eddy-w: 1.35; --flow-o: 0.6; --fine-o: 0.32; --eddy-o: 0.54; }
+.regime-glyph--re3 { --flow-w: 1.9; --wake-w: 2.15; --fine-w: 1.08; --eddy-w: 1.55; --flow-o: 0.54; --fine-o: 0.18; --eddy-o: 0.42; }
