@@ -369,7 +369,7 @@ img { max-width: 100%; display: block; }
 .section-title em {
   font-style: italic;
   font-weight: inherit;
-  color: var(--mint-dark);
+  color: var(--accent-bright);
 }
 
 .section-label {
@@ -714,7 +714,7 @@ footer a { color: var(--accent-mid); }
 }
 .regime-title em {
   font-style: italic;
-  color: var(--mint-dark);
+  color: var(--accent-bright);
 }
 .regime-plot {
   display: grid;
