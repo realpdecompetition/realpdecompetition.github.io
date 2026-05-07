@@ -1147,14 +1147,15 @@ section[id] { scroll-margin-top: 76px; }
   transform-origin: top left;
 }
 
-/* Hero subtitle highlight: per-line 95% white background so each wrapped line hugs the text
-   instead of forming a fixed rectangle (looks cleaner when text wraps to varying widths). */
+/* Hero subtitle highlight: per-line faint white wash so canvas is still visible through it
+   but text contrast lifts. box-decoration-break: clone hugs each wrapped line individually. */
 .hero-sub { line-height: 2.0; }
 .hero-sub-text {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.55);
   padding: 4px 12px;
   border-radius: 4px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  box-shadow: 0 1px 6px rgba(105, 98, 133, 0.06);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
