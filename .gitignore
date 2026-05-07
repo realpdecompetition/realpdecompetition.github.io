@@ -1,0 +1,39 @@
+# Secrets
+.env
+.gemini/.env
+
+# OS
+.DS_Store
+._*
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+
+# Build artifacts
+dist/
+site/
+
+# Reference code (large, not for commit)
+ref_codes/
+
+# PDF source
+*.pdf
+
+# Agent rules & project docs (not part of the website)
+CLAUDE.md
+docs/
+
+# Claude internal
+.claude/
