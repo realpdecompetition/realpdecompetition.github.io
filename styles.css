@@ -1151,11 +1151,11 @@ section[id] { scroll-margin-top: 76px; }
    but text contrast lifts. box-decoration-break: clone hugs each wrapped line individually. */
 .hero-sub { line-height: 2.0; }
 .hero-sub-text {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.10);
   padding: 4px 12px;
   border-radius: 4px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
 }
