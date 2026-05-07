@@ -230,7 +230,18 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
     var pageScale = getPageScale();
     dpr = window.devicePixelRatio || 1;
     rW = rect.width / pageScale;
-    rH = rect.height / pageScale;
+
+    /* Align canvas top to bottom of .hero-text-block so flow doesn't run under the title text */
+    var textBlock = document.querySelector('.hero-text-block');
+    var topOffset = 0;
+    if (textBlock) {
+      var tb = textBlock.getBoundingClientRect();
+      topOffset = (tb.bottom - rect.top) / pageScale;
+    }
+    rH = (rect.height / pageScale) - topOffset;
+    if (rH < 80) rH = rect.height / pageScale;  /* fallback if text overflows */
+
+    canvas.style.top = topOffset + 'px';
     canvas.width = rW * dpr;
     canvas.height = rH * dpr;
     canvas.style.width = rW + 'px';

@@ -1146,3 +1146,9 @@ section[id] { scroll-margin-top: 76px; }
   transform: scale(var(--rp-page-scale, 1));
   transform-origin: top left;
 }
+
+/* Hero text block — keeps title/subtitle above the flow canvas (canvas top is JS-aligned to this block's bottom) */
+.hero-text-block {
+  position: relative;
+  z-index: 2;
+}
