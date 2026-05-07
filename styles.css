@@ -1092,3 +1092,44 @@ section[id] { scroll-margin-top: 76px; }
 .regime-glyph--re10 { --flow-w: 1.4; --wake-w: 1.55; --fine-w: 0.9; --eddy-w: 1.18; --flow-o: 0.66; --fine-o: 0.54; --eddy-o: 0.68; }
 .regime-glyph--re6 { --flow-w: 1.65; --wake-w: 1.85; --fine-w: 1; --eddy-w: 1.35; --flow-o: 0.6; --fine-o: 0.32; --eddy-o: 0.54; }
 .regime-glyph--re3 { --flow-w: 1.9; --wake-w: 2.15; --fine-w: 1.08; --eddy-w: 1.55; --flow-o: 0.54; --fine-o: 0.18; --eddy-o: 0.42; }
+
+/* Regime glyph motion */
+@keyframes regime-stream {
+  to { stroke-dashoffset: -28; }
+}
+@keyframes regime-eddy-pulse {
+  0%, 100% { opacity: var(--eddy-o); }
+  50%      { opacity: calc(var(--eddy-o) * 0.45); }
+}
+.regime-glyph__flow {
+  stroke-dasharray: 5 4;
+  animation: regime-stream 2.4s linear infinite;
+}
+.regime-glyph__fine {
+  animation: regime-stream 1.8s linear infinite;
+}
+.regime-glyph__wake {
+  stroke-dasharray: 7 5;
+  animation: regime-stream 2s linear infinite;
+}
+.regime-glyph__eddy {
+  animation: regime-eddy-pulse 2.4s ease-in-out infinite;
+}
+.regime-glyph--re17 .regime-glyph__flow,
+.regime-glyph--re17 .regime-glyph__fine,
+.regime-glyph--re17 .regime-glyph__wake { animation-duration: 1.4s; }
+.regime-glyph--re13 .regime-glyph__flow,
+.regime-glyph--re13 .regime-glyph__fine,
+.regime-glyph--re13 .regime-glyph__wake { animation-duration: 1.7s; }
+.regime-glyph--re6 .regime-glyph__flow,
+.regime-glyph--re6 .regime-glyph__fine,
+.regime-glyph--re6 .regime-glyph__wake { animation-duration: 2.6s; }
+.regime-glyph--re3 .regime-glyph__flow,
+.regime-glyph--re3 .regime-glyph__fine,
+.regime-glyph--re3 .regime-glyph__wake { animation-duration: 3.2s; }
+@media (prefers-reduced-motion: reduce) {
+  .regime-glyph__flow,
+  .regime-glyph__fine,
+  .regime-glyph__wake,
+  .regime-glyph__eddy { animation: none; }
+}
