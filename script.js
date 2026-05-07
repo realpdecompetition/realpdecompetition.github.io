@@ -248,16 +248,8 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
       leadX = rW * 0.35;
     }
 
-    /* Place airfoil center halfway between text-block bottom and hero bottom */
-    var textBlock = document.querySelector('.hero-text-block');
-    if (textBlock) {
-      var tb = textBlock.getBoundingClientRect();
-      var textBottom = (tb.bottom - rect.top) / pageScale;
-      centerY = textBottom + (rH - textBottom) * 0.5;
-    } else {
-      centerY = rH * 0.55;
-    }
     chord = rW * 1.1;       /* 2x original — tail well off-screen */
+    centerY = rH * 0.55;    /* shifted down */
 
     buildFoilArrays();
     computeStreamlines();

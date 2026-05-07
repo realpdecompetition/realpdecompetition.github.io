@@ -1147,8 +1147,14 @@ section[id] { scroll-margin-top: 76px; }
   transform-origin: top left;
 }
 
-/* Hero text block — keeps title/subtitle above the flow canvas (canvas top is JS-aligned to this block's bottom) */
-.hero-text-block {
-  position: relative;
-  z-index: 2;
+/* Hero subtitle highlight: per-line 95% white background so each wrapped line hugs the text
+   instead of forming a fixed rectangle (looks cleaner when text wraps to varying widths). */
+.hero-sub { line-height: 2.0; }
+.hero-sub-text {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 12px;
+  border-radius: 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  box-shadow: 0 1px 6px rgba(105, 98, 133, 0.06);
 }
