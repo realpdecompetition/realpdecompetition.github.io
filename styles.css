@@ -712,7 +712,9 @@ footer a { color: var(--accent-mid); }
   background: rgba(255, 255, 255, 0.55);
   border-bottom: 1px solid rgba(216, 212, 230, 0.45);
   cursor: ew-resize;
-  touch-action: none;
+  /* Horizontal drag captured by pointermove; vertical pan stays with browser
+     so the user can scroll the page through the slider strip on touch screens. */
+  touch-action: pan-y;
   --rp-split: 20%;
 }
 .rp-compare img {
