@@ -106,9 +106,23 @@
     <p class="section-subtitle">
       A new competition centered on paired real-world and simulated data, targeting the core capabilities needed for Scientific ML in real physical systems.
     </p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Paired Real &amp; Simulated Data</h3>
+        <p>A new dataset of paired real-world trajectories (PIV measurements) and 3D CFD simulations of cross-sectional flow over the NACA4418 airfoil, spanning diverse angles of attack and Reynolds numbers.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Two Complementary Tracks</h3>
+        <p>Sim2Real transfer learning and Long-Term Test-Time Adaptation (LTTTA), targeting the two core capabilities needed for deployable Scientific ML in real physical systems.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Physics-aware Metrics</h3>
+        <p>Beyond point-wise errors: physics-meaningful evaluation including TKE, mean velocity profile, efficiency scoring, and a novel Safe Prediction Score for reliability.</p>
+      </div>
+    </div>
   </div>
 
-  <!-- Full-bleed Real↔Sim comparison band (breaks out of .section's 24px h-padding via negative margin in CSS) -->
+  <!-- Full-bleed Real↔Sim comparison band (closing visual; breaks out of .section's 24px h-padding via negative margin in CSS) -->
   <div class="hero-compare-band" aria-label="Real PIV vs CFD vorticity comparison">
     <div class="rp-compare" data-rp-compare data-split="25">
       <img class="rp-compare-base" src="img/compare/train_real_5025_5_vort1000.gif" alt="Real PIV vorticity field, NACA4418, Re 5025, AoA 5 degrees">
@@ -130,23 +144,6 @@
       <span class="hero-compare-meta__sep">·</span>
       <span class="hero-compare-meta__hint">Drag the handle</span>
     </p>
-  </div>
-
-  <div class="section-inner">
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Paired Real &amp; Simulated Data</h3>
-        <p>A new dataset of paired real-world trajectories (PIV measurements) and 3D CFD simulations of cross-sectional flow over the NACA4418 airfoil, spanning diverse angles of attack and Reynolds numbers.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Two Complementary Tracks</h3>
-        <p>Sim2Real transfer learning and Long-Term Test-Time Adaptation (LTTTA), targeting the two core capabilities needed for deployable Scientific ML in real physical systems.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Physics-aware Metrics</h3>
-        <p>Beyond point-wise errors: physics-meaningful evaluation including TKE, mean velocity profile, efficiency scoring, and a novel Safe Prediction Score for reliability.</p>
-      </div>
-    </div>
   </div>
 </section>
 

@@ -719,13 +719,13 @@ footer a { color: var(--accent-mid); }
 .divider { width: 60px; height: 3px; background: var(--lavender-main); margin: 20px auto; border-radius: 2px; }
 
 /* ========================================
-   COMPARE BAND (full-bleed strip; lives inside #about between subtitle and features-grid)
+   COMPARE BAND (full-bleed strip; closes #about below the features-grid)
    Negative h-margin cancels .section's 24px padding so the strip spans the viewport.
    Slider keeps the cinematic 86/30 aspect — same flatness regardless of container.
    ======================================== */
 .hero-compare-band {
   position: relative;
-  margin: var(--spacing-md) -24px var(--spacing-sm);
+  margin: var(--spacing-md) -24px calc(-1 * var(--spacing-lg));
   padding: 0;
 }
 .rp-compare {
