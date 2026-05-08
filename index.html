@@ -72,13 +72,35 @@
 
 <!-- ==================== HERO ==================== -->
 <section class="hero" id="hero">
-  <canvas id="hero-flow"></canvas>
   <div class="hero-inner">
     <div class="hero-badge">NeurIPS 2026 Competition</div>
     <h1><span data-hero-pde>RealPDE</span> <span class="accent-mid">Competition</span></h1>
     <p class="hero-sub">
       <span class="hero-sub-text">Scientific ML for Real-world Physical Systems. The first NeurIPS Scientific ML competition centered on data from real physical systems, with paired real-world and simulated fluid dynamics over the NACA4418 airfoil.</span>
     </p>
+
+    <div class="hero-compare-wrap">
+      <div class="rp-compare" data-rp-compare data-split="20">
+        <img class="rp-compare-base" src="img/compare/train_real_5025_5_vort1000.gif" alt="Real PIV vorticity field, NACA4418, Re 5025, AoA 5 degrees">
+        <div class="rp-compare-label rp-compare-label--base" aria-hidden="true">REAL · PIV</div>
+        <div class="rp-compare-overlay" aria-hidden="true">
+          <img class="rp-compare-over" src="img/compare/train_sim_5025_5_vort1000.gif" alt="CFD simulated vorticity field, NACA4418, Re 5025, AoA 5 degrees">
+          <div class="rp-compare-label rp-compare-label--overlay" aria-hidden="true">SIM · CFD</div>
+        </div>
+        <div class="rp-compare-handle" role="slider" tabindex="0" aria-label="Drag to compare real and simulated vorticity" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"></div>
+      </div>
+      <div class="hero-compare-meta">
+        <span class="hero-compare-meta__kicker">Vorticity $\omega_z$</span>
+        <span class="hero-compare-meta__sep">·</span>
+        <span>NACA4418</span>
+        <span class="hero-compare-meta__sep">·</span>
+        <span>$\mathrm{Re}=5025$</span>
+        <span class="hero-compare-meta__sep">·</span>
+        <span>$\mathrm{AoA}=5°$</span>
+        <span class="hero-compare-meta__sep">·</span>
+        <span class="hero-compare-meta__hint">Drag the handle</span>
+      </div>
+    </div>
 
     <p class="countdown-target">Competition launches in:</p>
     <div class="countdown-wrap" id="countdown">
@@ -177,7 +199,7 @@
       </div>
       <div class="feature-card feature-card--no-icon">
         <h3>Operating Conditions</h3>
-        <p>Angles of attack: 0°, 5°, 10°, 15°, 20°. Reynolds numbers: 2968–17031. Covers diverse operating regimes reflecting real foil-based engineering systems.</p>
+        <p>Angles of attack: 0°, 5°, 10°, 15°, 20°. Reynolds numbers: 5025, 8850, 10125, 16500, 20325. Covers diverse operating regimes reflecting real foil-based engineering systems.</p>
       </div>
     </div>
 
@@ -186,108 +208,42 @@
       <div class="regime-plot">
         <div class="regime-yaxis-label">Reynolds Number</div>
         <div class="regime-yaxis">
-          <span>17k</span>
-          <span>13k</span>
-          <span>10k</span>
-          <span>6k</span>
-          <span>3k</span>
+          <span>20325</span>
+          <span>16500</span>
+          <span>10125</span>
+          <span>8850</span>
+          <span>5025</span>
         </div>
         <div class="regime-grid">
-          <div class="regime-cell regime-cell--glyph">
-            <svg class="regime-glyph-defs" aria-hidden="true" focusable="false">
-              <defs>
-                <symbol id="regime-aoa0" viewBox="0 0 76 76">
-                  <g class="regime-glyph__foil" transform="rotate(0 24 38)">
-                    <path class="regime-glyph__foil-body" d="M12 38 C17 31 29 30 37 36 C28 40 18 42 12 38Z" />
-                    <path class="regime-glyph__chord" d="M15 37.6 L35.5 36.4" />
-                  </g>
-                  <path class="regime-glyph__flow" d="M7 30 C17 29 25 30 35 33" />
-                  <path class="regime-glyph__wake" d="M36 38 C46 38 56 38 69 38" />
-                  <path class="regime-glyph__flow" d="M7 46 C17 47 26 46 35 43" />
-                  <path class="regime-glyph__fine" d="M39 34 C49 34 58 35 68 35" />
-                  <path class="regime-glyph__fine" d="M39 42 C50 42 58 41 68 41" />
-                </symbol>
-                <symbol id="regime-aoa5" viewBox="0 0 76 76">
-                  <g class="regime-glyph__foil" transform="rotate(5 24 38)">
-                    <path class="regime-glyph__foil-body" d="M12 38 C17 31 29 30 37 36 C28 40 18 42 12 38Z" />
-                    <path class="regime-glyph__chord" d="M15 37.6 L35.5 36.4" />
-                  </g>
-                  <path class="regime-glyph__flow" d="M7 29 C18 28 27 31 36 35" />
-                  <path class="regime-glyph__wake" d="M37 39 C47 40 57 41 69 42" />
-                  <path class="regime-glyph__flow" d="M7 47 C18 48 28 47 37 43" />
-                  <path class="regime-glyph__fine" d="M39 34 C49 34 58 36 68 37" />
-                  <path class="regime-glyph__fine" d="M39 44 C50 45 59 46 69 48" />
-                </symbol>
-                <symbol id="regime-aoa10" viewBox="0 0 76 76">
-                  <g class="regime-glyph__foil" transform="rotate(10 24 38)">
-                    <path class="regime-glyph__foil-body" d="M12 38 C17 31 29 30 37 36 C28 40 18 42 12 38Z" />
-                    <path class="regime-glyph__chord" d="M15 37.6 L35.5 36.4" />
-                  </g>
-                  <path class="regime-glyph__flow" d="M7 28 C19 28 28 32 38 38" />
-                  <path class="regime-glyph__wake" d="M38 40 C48 43 58 45 70 48" />
-                  <path class="regime-glyph__flow" d="M7 49 C18 50 28 49 38 46" />
-                  <path class="regime-glyph__fine" d="M38 33 C48 34 58 37 69 42" />
-                  <path class="regime-glyph__fine" d="M38 47 C48 50 59 53 70 56" />
-                  <path class="regime-glyph__eddy" d="M52 45 C50 42 53 39 57 42 C60 45 57 49 54 48" />
-                </symbol>
-                <symbol id="regime-aoa15" viewBox="0 0 76 76">
-                  <g class="regime-glyph__foil" transform="rotate(15 24 38)">
-                    <path class="regime-glyph__foil-body" d="M12 38 C17 31 29 30 37 36 C28 40 18 42 12 38Z" />
-                    <path class="regime-glyph__chord" d="M15 37.6 L35.5 36.4" />
-                  </g>
-                  <path class="regime-glyph__flow" d="M7 27 C19 28 29 35 39 43" />
-                  <path class="regime-glyph__wake" d="M38 42 C49 49 59 55 71 59" />
-                  <path class="regime-glyph__flow" d="M7 51 C18 54 28 54 39 50" />
-                  <path class="regime-glyph__fine" d="M37 31 C47 34 55 41 70 50" />
-                  <path class="regime-glyph__fine" d="M37 51 C47 57 59 62 71 65" />
-                  <path class="regime-glyph__eddy" d="M52 43 C56 39 62 42 61 47 C60 51 54 51 54 47 C54 44 57 44 58 46" />
-                  <path class="regime-glyph__eddy" d="M61 57 C65 54 70 57 69 61 C68 65 62 65 62 61 C62 59 65 59 66 61" />
-                </symbol>
-                <symbol id="regime-aoa20" viewBox="0 0 76 76">
-                  <g class="regime-glyph__foil" transform="rotate(20 24 38)">
-                    <path class="regime-glyph__foil-body" d="M12 38 C17 31 29 30 37 36 C28 40 18 42 12 38Z" />
-                    <path class="regime-glyph__chord" d="M15 37.6 L35.5 36.4" />
-                  </g>
-                  <path class="regime-glyph__flow" d="M7 26 C19 29 29 39 39 47" />
-                  <path class="regime-glyph__wake" d="M37 43 C49 52 60 61 72 67" />
-                  <path class="regime-glyph__flow" d="M7 53 C18 58 29 60 40 56" />
-                  <path class="regime-glyph__fine" d="M36 30 C48 36 56 48 72 58" />
-                  <path class="regime-glyph__fine" d="M38 55 C50 64 62 69 72 71" />
-                  <path class="regime-glyph__eddy" d="M50 41 C57 34 67 39 66 47 C65 54 55 55 55 48 C55 43 61 42 61 47" />
-                  <path class="regime-glyph__eddy" d="M56 60 C62 54 72 58 71 65 C70 72 60 72 60 65 C60 61 65 61 66 64" />
-                </symbol>
-              </defs>
-            </svg>
-            <svg class="regime-glyph regime-glyph--re17" viewBox="0 0 76 76" role="img" aria-label="Re 17k, AoA 0 degrees"><use href="#regime-aoa0"></use></svg>
-          </div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re17" viewBox="0 0 76 76" role="img" aria-label="Re 17k, AoA 5 degrees"><use href="#regime-aoa5"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re17" viewBox="0 0 76 76" role="img" aria-label="Re 17k, AoA 10 degrees"><use href="#regime-aoa10"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re17" viewBox="0 0 76 76" role="img" aria-label="Re 17k, AoA 15 degrees"><use href="#regime-aoa15"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re17" viewBox="0 0 76 76" role="img" aria-label="Re 17k, AoA 20 degrees"><use href="#regime-aoa20"></use></svg></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_20325_0.gif" alt="Real PIV, Re 20325, AoA 0 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_20325_5.gif" alt="Real PIV, Re 20325, AoA 5 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_20325_10.gif" alt="Real PIV, Re 20325, AoA 10 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_20325_15.gif" alt="Real PIV, Re 20325, AoA 15 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_20325_20.gif" alt="Real PIV, Re 20325, AoA 20 degrees" loading="lazy"></div>
 
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re13" viewBox="0 0 76 76" role="img" aria-label="Re 13k, AoA 0 degrees"><use href="#regime-aoa0"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re13" viewBox="0 0 76 76" role="img" aria-label="Re 13k, AoA 5 degrees"><use href="#regime-aoa5"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re13" viewBox="0 0 76 76" role="img" aria-label="Re 13k, AoA 10 degrees"><use href="#regime-aoa10"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re13" viewBox="0 0 76 76" role="img" aria-label="Re 13k, AoA 15 degrees"><use href="#regime-aoa15"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re13" viewBox="0 0 76 76" role="img" aria-label="Re 13k, AoA 20 degrees"><use href="#regime-aoa20"></use></svg></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_16500_0.gif" alt="Real PIV, Re 16500, AoA 0 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_16500_5.gif" alt="Real PIV, Re 16500, AoA 5 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_16500_10.gif" alt="Real PIV, Re 16500, AoA 10 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_16500_15.gif" alt="Real PIV, Re 16500, AoA 15 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_16500_20.gif" alt="Real PIV, Re 16500, AoA 20 degrees" loading="lazy"></div>
 
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re10" viewBox="0 0 76 76" role="img" aria-label="Re 10k, AoA 0 degrees"><use href="#regime-aoa0"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re10" viewBox="0 0 76 76" role="img" aria-label="Re 10k, AoA 5 degrees"><use href="#regime-aoa5"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re10" viewBox="0 0 76 76" role="img" aria-label="Re 10k, AoA 10 degrees"><use href="#regime-aoa10"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re10" viewBox="0 0 76 76" role="img" aria-label="Re 10k, AoA 15 degrees"><use href="#regime-aoa15"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re10" viewBox="0 0 76 76" role="img" aria-label="Re 10k, AoA 20 degrees"><use href="#regime-aoa20"></use></svg></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_10125_0.gif" alt="Real PIV, Re 10125, AoA 0 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_10125_5.gif" alt="Real PIV, Re 10125, AoA 5 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_10125_10.gif" alt="Real PIV, Re 10125, AoA 10 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_10125_15.gif" alt="Real PIV, Re 10125, AoA 15 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_10125_20.gif" alt="Real PIV, Re 10125, AoA 20 degrees" loading="lazy"></div>
 
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re6" viewBox="0 0 76 76" role="img" aria-label="Re 6k, AoA 0 degrees"><use href="#regime-aoa0"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re6" viewBox="0 0 76 76" role="img" aria-label="Re 6k, AoA 5 degrees"><use href="#regime-aoa5"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re6" viewBox="0 0 76 76" role="img" aria-label="Re 6k, AoA 10 degrees"><use href="#regime-aoa10"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re6" viewBox="0 0 76 76" role="img" aria-label="Re 6k, AoA 15 degrees"><use href="#regime-aoa15"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re6" viewBox="0 0 76 76" role="img" aria-label="Re 6k, AoA 20 degrees"><use href="#regime-aoa20"></use></svg></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_8850_0.gif" alt="Real PIV, Re 8850, AoA 0 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_8850_5.gif" alt="Real PIV, Re 8850, AoA 5 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_8850_10.gif" alt="Real PIV, Re 8850, AoA 10 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_8850_15.gif" alt="Real PIV, Re 8850, AoA 15 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_8850_20.gif" alt="Real PIV, Re 8850, AoA 20 degrees" loading="lazy"></div>
 
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re3" viewBox="0 0 76 76" role="img" aria-label="Re 3k, AoA 0 degrees"><use href="#regime-aoa0"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re3" viewBox="0 0 76 76" role="img" aria-label="Re 3k, AoA 5 degrees"><use href="#regime-aoa5"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re3" viewBox="0 0 76 76" role="img" aria-label="Re 3k, AoA 10 degrees"><use href="#regime-aoa10"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re3" viewBox="0 0 76 76" role="img" aria-label="Re 3k, AoA 15 degrees"><use href="#regime-aoa15"></use></svg></div>
-          <div class="regime-cell regime-cell--glyph"><svg class="regime-glyph regime-glyph--re3" viewBox="0 0 76 76" role="img" aria-label="Re 3k, AoA 20 degrees"><use href="#regime-aoa20"></use></svg></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_5025_0.gif" alt="Real PIV, Re 5025, AoA 0 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_5025_5.gif" alt="Real PIV, Re 5025, AoA 5 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_5025_10.gif" alt="Real PIV, Re 5025, AoA 10 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_5025_15.gif" alt="Real PIV, Re 5025, AoA 15 degrees" loading="lazy"></div>
+          <div class="regime-cell regime-cell--gif"><img src="img/regime/train_real_5025_20.gif" alt="Real PIV, Re 5025, AoA 20 degrees" loading="lazy"></div>
         </div>
       </div>
       <div class="regime-xaxis">
@@ -298,7 +254,7 @@
         <span>20°</span>
       </div>
       <div class="regime-xaxis-label">Angle of Attack</div>
-      <p class="regime-caption">Angle of attack increases left to right (foil tilt, wake deflection, vortex shedding at 15–20°). Reynolds number changes top to bottom: higher Re draws sharper, denser fine-wake strokes; lower Re draws thicker, more diffuse strokes.</p>
+      <p class="regime-caption">Real PIV vorticity fields across the full operating envelope. Diverging red/blue colormap for $\omega_z$ (red: positive, blue: negative). Resolution reflects the native PIV grid.</p>
     </figure>
   </div>
 </section>
