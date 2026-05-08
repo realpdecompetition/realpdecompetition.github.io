@@ -70,25 +70,13 @@
 <div class="rp-scale-outer">
 <div class="rp-scale-inner">
 
-<!-- ==================== HERO (slider as background, content layered on top) ==================== -->
+<!-- ==================== HERO TEXT ==================== -->
 <section class="hero" id="hero">
-  <div class="hero-bg" aria-label="Real PIV vs CFD vorticity comparison">
-    <div class="rp-compare" data-rp-compare data-split="20">
-      <img class="rp-compare-base" src="img/compare/train_real_5025_5_vort1000.gif" alt="Real PIV vorticity field, NACA4418, Re 5025, AoA 5 degrees">
-      <div class="rp-compare-label rp-compare-label--base" aria-hidden="true">REAL · PIV</div>
-      <div class="rp-compare-overlay" aria-hidden="true">
-        <img class="rp-compare-over" src="img/compare/train_sim_5025_5_vort1000.gif" alt="CFD simulated vorticity field, NACA4418, Re 5025, AoA 5 degrees">
-        <div class="rp-compare-label rp-compare-label--overlay" aria-hidden="true">SIM · CFD</div>
-      </div>
-      <div class="rp-compare-handle" role="slider" tabindex="0" aria-label="Drag to compare real and simulated vorticity" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"></div>
-    </div>
-  </div>
-
   <div class="hero-inner">
     <div class="hero-badge">NeurIPS 2026 Competition</div>
     <h1><span data-hero-pde>RealPDE</span><br><span class="accent-mid">Competition</span></h1>
     <p class="hero-sub">
-      Scientific ML for Real-world Physical Systems. The first NeurIPS Scientific ML competition centered on data from real physical systems, with paired real-world and simulated fluid dynamics over the NACA4418 airfoil.
+      Scientific ML for Real-world Physical Systems. The first NeurIPS Scientific ML competition centered on data from real physical systems.
     </p>
 
     <p class="countdown-target">Competition launches in:</p>
@@ -106,19 +94,31 @@
         GitHub
       </a>
     </div>
-
-    <p class="hero-compare-meta">
-      <span class="hero-compare-meta__kicker">Vorticity $\omega_z$</span>
-      <span class="hero-compare-meta__sep">·</span>
-      <span>NACA4418</span>
-      <span class="hero-compare-meta__sep">·</span>
-      <span>$\mathrm{Re}=5025$</span>
-      <span class="hero-compare-meta__sep">·</span>
-      <span>$\mathrm{AoA}=5°$</span>
-      <span class="hero-compare-meta__sep">·</span>
-      <span class="hero-compare-meta__hint">Drag the handle</span>
-    </p>
   </div>
+</section>
+
+<!-- ==================== HERO COMPARE BAND (full-bleed, hero closing visual; nothing overlaid) ==================== -->
+<section class="hero-compare-band" aria-label="Real PIV vs CFD vorticity comparison">
+  <div class="rp-compare" data-rp-compare data-split="20">
+    <img class="rp-compare-base" src="img/compare/train_real_5025_5_vort1000.gif" alt="Real PIV vorticity field, NACA4418, Re 5025, AoA 5 degrees">
+    <div class="rp-compare-label rp-compare-label--base" aria-hidden="true">REAL · PIV</div>
+    <div class="rp-compare-overlay" aria-hidden="true">
+      <img class="rp-compare-over" src="img/compare/train_sim_5025_5_vort1000.gif" alt="CFD simulated vorticity field, NACA4418, Re 5025, AoA 5 degrees">
+      <div class="rp-compare-label rp-compare-label--overlay" aria-hidden="true">SIM · CFD</div>
+    </div>
+    <div class="rp-compare-handle" role="slider" tabindex="0" aria-label="Drag to compare real and simulated vorticity" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"></div>
+  </div>
+  <p class="hero-compare-meta">
+    <span class="hero-compare-meta__kicker">Vorticity $\omega_z$</span>
+    <span class="hero-compare-meta__sep">·</span>
+    <span>NACA4418</span>
+    <span class="hero-compare-meta__sep">·</span>
+    <span>$\mathrm{Re}=5025$</span>
+    <span class="hero-compare-meta__sep">·</span>
+    <span>$\mathrm{AoA}=5°$</span>
+    <span class="hero-compare-meta__sep">·</span>
+    <span class="hero-compare-meta__hint">Drag the handle</span>
+  </p>
 </section>
 
 <!-- ==================== ABOUT ==================== -->
