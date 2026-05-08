@@ -51,7 +51,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   padding-top: 60px;
-  overflow-x: hidden;
+  /* clip (not hidden) so iOS Safari doesn't establish a scroll context that
+     blocks vertical pan when combined with the rp-scale wrapper. */
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4 {
@@ -1167,7 +1169,7 @@ section[id] { scroll-margin-top: 76px; }
    Navbar stays at viewport width (fixed position, outside the scale wrapper).
    ======================================== */
 .rp-scale-outer { position: relative; }
-.rp-scale-outer.rp-scale-active { overflow: hidden; }
+.rp-scale-outer.rp-scale-active { overflow: clip; }
 .rp-scale-outer.rp-scale-active .rp-scale-inner {
   width: 768px;
   transform: scale(var(--rp-page-scale, 1));
