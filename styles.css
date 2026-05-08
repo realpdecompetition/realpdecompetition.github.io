@@ -269,7 +269,16 @@ img { max-width: 100%; display: block; }
 }
 .hero h1 br { display: block; }
 
-.hero h1 .accent-mid { color: var(--accent-bright); }
+.hero h1 .hero-gradient-mint {
+  background: linear-gradient(135deg,
+    var(--mint-light) 0%,
+    var(--mint-mid) 55%,
+    var(--mint-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
 
 .hero-sub {
   font-size: clamp(1.05rem, 2vw, 1.35rem);
