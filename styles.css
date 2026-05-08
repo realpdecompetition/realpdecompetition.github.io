@@ -689,54 +689,24 @@ footer a { color: var(--accent-mid); }
    HERO COMPARE BAND (full-bleed, directly below navbar)
    Slider takes vertical middle 80% of source (visually flatter): aspect 86 / (64*0.8).
    ======================================== */
-.hero-compare-band {
-  position: relative;
-  margin: 0;
-  padding: 0;
+/* Slider as full-bleed hero background (covers .hero) */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: auto;
 }
 .rp-compare {
   position: relative;
   width: 100%;
+  height: 100%;
   border-radius: 0;
   overflow: hidden;
-  aspect-ratio: 86 / 40; /* vertical middle ~62% of native; tall enough to host the CTA card */
   background: rgba(255, 255, 255, 0.55);
-  border-bottom: 1px solid rgba(216, 212, 230, 0.45);
   cursor: ew-resize;
   touch-action: none;
   --rp-split: 20%;
-}
-/* Floating CTA card overlaid on the slider */
-.hero-compare-cta {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.92);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(216, 212, 230, 0.6);
-  border-radius: 18px;
-  padding: 22px 32px 24px;
-  box-shadow: 0 18px 56px rgba(33, 33, 33, 0.18), 0 2px 8px rgba(33, 33, 33, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  z-index: 7; /* above slider divider (z6) and handle (z5) */
-  max-width: min(680px, calc(100vw - 48px));
-  pointer-events: auto;
-}
-.hero-compare-cta .countdown-target { margin: 0; color: var(--slate); }
-.hero-compare-cta .countdown-wrap { margin: 0; }
-.hero-compare-cta .hero-actions { margin: 4px 0 0; }
-@media (max-width: 720px) {
-  .hero-compare-cta {
-    padding: 18px 22px 20px;
-    gap: 12px;
-    border-radius: 14px;
-  }
-  .hero-compare-cta .countdown-wrap { gap: 8px; }
 }
 .rp-compare img {
   position: absolute;
