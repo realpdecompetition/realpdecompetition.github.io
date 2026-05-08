@@ -229,6 +229,16 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
+#hero-flow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero-inner {
   position: relative;
   z-index: 1;
@@ -287,9 +297,21 @@ img { max-width: 100%; display: block; }
   color: var(--carbon);
   opacity: 0.7;
   max-width: 760px;
-  line-height: 1.7;
+  line-height: 2.0;
   font-weight: 500;
   margin-bottom: 2rem;
+}
+
+/* Per-line faint white wash so canvas particles still show through, but text contrast lifts.
+   box-decoration-break: clone hugs each wrapped line individually. */
+.hero-sub-text {
+  background: rgba(255, 255, 255, 0.20);
+  padding: 4px 12px;
+  border-radius: 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 /* Countdown */
@@ -589,7 +611,7 @@ img { max-width: 100%; display: block; }
    ======================================== */
 .metrics-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
 }
 
@@ -697,12 +719,13 @@ footer a { color: var(--accent-mid); }
 .divider { width: 60px; height: 3px; background: var(--lavender-main); margin: 20px auto; border-radius: 2px; }
 
 /* ========================================
-   HERO COMPARE BAND (full-bleed, directly below navbar)
-   Slider takes vertical middle 80% of source (visually flatter): aspect 86 / (64*0.8).
+   COMPARE BAND (full-bleed strip; lives inside #about between subtitle and features-grid)
+   Negative h-margin cancels .section's 24px padding so the strip spans the viewport.
+   Slider keeps the cinematic 86/30 aspect — same flatness regardless of container.
    ======================================== */
 .hero-compare-band {
   position: relative;
-  margin: 0;
+  margin: var(--spacing-md) -24px var(--spacing-sm);
   padding: 0;
 }
 .rp-compare {
@@ -1175,5 +1198,3 @@ section[id] { scroll-margin-top: 76px; }
   transform: scale(var(--rp-page-scale, 1));
   transform-origin: top left;
 }
-
-.hero-sub { line-height: 1.7; }

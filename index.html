@@ -70,13 +70,14 @@
 <div class="rp-scale-outer">
 <div class="rp-scale-inner">
 
-<!-- ==================== HERO TEXT ==================== -->
+<!-- ==================== HERO ==================== -->
 <section class="hero" id="hero">
+  <canvas id="hero-flow"></canvas>
   <div class="hero-inner">
     <div class="hero-badge">NeurIPS 2026 Competition</div>
-    <h1><span class="hero-gradient-mint">RealPDE</span><br>Competition</h1>
+    <h1><span class="hero-gradient-mint" data-hero-pde>RealPDE</span><br>Competition</h1>
     <p class="hero-sub">
-      Scientific ML for Real-world Physical Systems. The first NeurIPS Scientific ML competition centered on data from real physical systems.
+      <span class="hero-sub-text">Scientific ML for Real-world Physical Systems. The first NeurIPS Scientific ML competition centered on data from real physical systems.</span>
     </p>
 
     <p class="countdown-target">Competition launches in:</p>
@@ -97,30 +98,6 @@
   </div>
 </section>
 
-<!-- ==================== HERO COMPARE BAND (full-bleed, hero closing visual; nothing overlaid) ==================== -->
-<section class="hero-compare-band" aria-label="Real PIV vs CFD vorticity comparison">
-  <div class="rp-compare" data-rp-compare data-split="50">
-    <img class="rp-compare-base" src="img/compare/train_real_5025_5_vort1000.gif" alt="Real PIV vorticity field, NACA4418, Re 5025, AoA 5 degrees">
-    <div class="rp-compare-label rp-compare-label--base" aria-hidden="true">REAL · PIV</div>
-    <div class="rp-compare-overlay" aria-hidden="true">
-      <img class="rp-compare-over" src="img/compare/train_sim_5025_5_vort1000.gif" alt="CFD simulated vorticity field, NACA4418, Re 5025, AoA 5 degrees">
-      <div class="rp-compare-label rp-compare-label--overlay" aria-hidden="true">SIM · CFD</div>
-    </div>
-    <div class="rp-compare-handle" role="slider" tabindex="0" aria-label="Drag to compare real and simulated vorticity" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
-  </div>
-  <p class="hero-compare-meta">
-    <span class="hero-compare-meta__kicker">Vorticity $\omega_z$</span>
-    <span class="hero-compare-meta__sep">·</span>
-    <span>NACA4418</span>
-    <span class="hero-compare-meta__sep">·</span>
-    <span>$\mathrm{Re}=5025$</span>
-    <span class="hero-compare-meta__sep">·</span>
-    <span>$\mathrm{AoA}=5°$</span>
-    <span class="hero-compare-meta__sep">·</span>
-    <span class="hero-compare-meta__hint">Drag the handle</span>
-  </p>
-</section>
-
 <!-- ==================== ABOUT ==================== -->
 <section class="section" id="about">
   <div class="section-inner">
@@ -129,6 +106,33 @@
     <p class="section-subtitle">
       A new competition centered on paired real-world and simulated data, targeting the core capabilities needed for Scientific ML in real physical systems.
     </p>
+  </div>
+
+  <!-- Full-bleed Real↔Sim comparison band (breaks out of .section's 24px h-padding via negative margin in CSS) -->
+  <div class="hero-compare-band" aria-label="Real PIV vs CFD vorticity comparison">
+    <div class="rp-compare" data-rp-compare data-split="25">
+      <img class="rp-compare-base" src="img/compare/train_real_5025_5_vort1000.gif" alt="Real PIV vorticity field, NACA4418, Re 5025, AoA 5 degrees">
+      <div class="rp-compare-label rp-compare-label--base" aria-hidden="true">REAL · PIV</div>
+      <div class="rp-compare-overlay" aria-hidden="true">
+        <img class="rp-compare-over" src="img/compare/train_sim_5025_5_vort1000.gif" alt="CFD simulated vorticity field, NACA4418, Re 5025, AoA 5 degrees">
+        <div class="rp-compare-label rp-compare-label--overlay" aria-hidden="true">SIM · CFD</div>
+      </div>
+      <div class="rp-compare-handle" role="slider" tabindex="0" aria-label="Drag to compare real and simulated vorticity" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25"></div>
+    </div>
+    <p class="hero-compare-meta">
+      <span class="hero-compare-meta__kicker">Vorticity <em>ω</em><sub>z</sub></span>
+      <span class="hero-compare-meta__sep">·</span>
+      <span>NACA4418</span>
+      <span class="hero-compare-meta__sep">·</span>
+      <span>Re = 5025</span>
+      <span class="hero-compare-meta__sep">·</span>
+      <span>AoA = 5°</span>
+      <span class="hero-compare-meta__sep">·</span>
+      <span class="hero-compare-meta__hint">Drag the handle</span>
+    </p>
+  </div>
+
+  <div class="section-inner">
     <div class="features-grid">
       <div class="feature-card">
         <h3>Paired Real &amp; Simulated Data</h3>
