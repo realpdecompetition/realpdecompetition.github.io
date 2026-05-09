@@ -314,7 +314,12 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
       leadX = rW * 0.35;
     }
 
-    chord = rW * 1.1;       /* 2x original — tail well off-screen */
+    /* Cap chord so the airfoil stops scaling on ultrawide screens.
+       Without the cap, chord (and thus foil thickness ∝ chord*0.18) grows
+       with viewport width while hero height stays content-driven, so the
+       foil eats into the top half on 4K. Streamlines still span full rW
+       so particles enter from the true left edge. */
+    chord = Math.min(rW * 1.1, 1760);
     centerY = rH * 0.55;    /* shifted down */
 
     buildFoilArrays();

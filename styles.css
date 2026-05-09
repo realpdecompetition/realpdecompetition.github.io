@@ -1187,6 +1187,18 @@ section[id] { scroll-margin-top: 76px; }
   .section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); }
 }
 
+/* Cap the compare slider on ultrawide screens. Native source ≈ 516×180 after
+   crop; beyond ~1400px the upscale gets visibly mushy. Trigger above 1700px
+   viewport so common Mac sizes (1440/1512/1680) keep the full-bleed look and
+   only true wide screens get the centered cap. */
+@media (min-width: 1700px) {
+  .hero-compare-band {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 
 /* ========================================
    PROPORTIONAL CONTENT SCALE (mirrors realpdebench)
