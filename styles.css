@@ -742,8 +742,7 @@ footer a { color: var(--accent-mid); }
   touch-action: pan-y;
   --rp-split: 20%;
 }
-.rp-compare img,
-.rp-compare video {
+.rp-compare img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -753,7 +752,6 @@ footer a { color: var(--accent-mid); }
   image-rendering: crisp-edges;
   user-select: none;
   -webkit-user-drag: none;
-  pointer-events: none;
 }
 .rp-compare-overlay {
   position: absolute;
