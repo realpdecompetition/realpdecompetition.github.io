@@ -1080,18 +1080,22 @@ footer a { color: var(--accent-mid); }
   margin-top: 10px;
 }
 
-/* Grids */
+/* Grids — flex so the orphan tail row centers */
 .organizer-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
   max-width: 1100px;
   margin: 0 auto;
 }
-.organizer-grid--contrib {
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+.organizer-grid--contrib > .organizer-card {
+  flex: 0 1 220px;
+  max-width: 240px;
 }
-.organizer-grid--advisor {
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+.organizer-grid--advisor > .organizer-card {
+  flex: 0 1 245px;
+  max-width: 260px;
 }
 
 /* "Coming Soon" disabled-style buttons */
