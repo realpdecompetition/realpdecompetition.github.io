@@ -432,9 +432,14 @@ img { max-width: 100%; display: block; }
    FEATURE / INFO CARDS
    ======================================== */
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
+}
+.features-grid > .feature-card {
+  flex: 1 1 300px;
+  max-width: 360px;
 }
 
 .feature-card {
