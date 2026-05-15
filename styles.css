@@ -719,28 +719,35 @@ footer a { color: var(--accent-mid); }
 .divider { width: 60px; height: 3px; background: var(--lavender-main); margin: 20px auto; border-radius: 2px; }
 
 /* ========================================
-   COMPARE BAND (full-bleed strip; closes #about below the features-grid)
-   Negative h-margin cancels .section's 24px padding so the strip spans the viewport.
-   Slider keeps the cinematic 86/30 aspect — same flatness regardless of container.
+   COMPARE BAND (two side-by-side sliders at native 86×64 aspect)
+   Ported from realpdebench: left card has REAL base + SIM overlay; right card mirrors.
+   Container-bounded (no longer full-bleed) so each card stays small enough that
+   native-resolution pixels stay crisp under image-rendering: pixelated.
    ======================================== */
 .hero-compare-band {
   position: relative;
-  margin: var(--spacing-md) -24px calc(-1 * var(--spacing-lg));
+  margin: var(--spacing-md) auto calc(-0.5 * var(--spacing-lg));
   padding: 0;
+  max-width: 1080px;
+}
+.rp-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }
 .rp-compare {
   position: relative;
   width: 100%;
   border-radius: 0;
   overflow: hidden;
-  aspect-ratio: 86 / 30; /* cinematic strip — vertical middle ~47% of native 86×64 */
+  aspect-ratio: 86 / 54; /* native 86×64, crop ~5px top + 5px bottom via object-fit: cover */
   background: rgba(255, 255, 255, 0.55);
-  border-bottom: 1px solid rgba(216, 212, 230, 0.45);
+  border: 1px solid rgba(216, 212, 230, 0.55);
   cursor: ew-resize;
   /* Horizontal drag captured by pointermove; vertical pan stays with browser
-     so the user can scroll the page through the slider strip on touch screens. */
+     so the user can scroll the page through the slider on touch screens. */
   touch-action: pan-y;
-  --rp-split: 20%;
+  --rp-split: 25%;
 }
 .rp-compare img {
   position: absolute;
@@ -1189,17 +1196,6 @@ section[id] { scroll-margin-top: 76px; }
   .section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); }
 }
 
-/* Cap the compare slider on ultrawide screens. Native source ≈ 516×180 after
-   crop; beyond ~1400px the upscale gets visibly mushy. Trigger above 1700px
-   viewport so common Mac sizes (1440/1512/1680) keep the full-bleed look and
-   only true wide screens get the centered cap. */
-@media (min-width: 1700px) {
-  .hero-compare-band {
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 
 /* ========================================

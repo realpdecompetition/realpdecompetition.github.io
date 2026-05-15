@@ -83,11 +83,21 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
     var split = clamp(initial, 0, 100);
     var handle = el.querySelector('.rp-compare-handle');
 
-    function setSplit(pct) {
+    function setSplit(pct, fromSync) {
       split = clamp(pct, 0, 100);
       el.style.setProperty('--rp-split', split.toFixed(1) + '%');
       if (handle) handle.setAttribute('aria-valuenow', String(Math.round(split)));
+      if (!fromSync) {
+        var grid = el.closest('.rp-compare-grid');
+        if (grid) {
+          grid.querySelectorAll('[data-rp-compare]').forEach(function (other) {
+            if (other === el || !other._rpSetSplit) return;
+            other._rpSetSplit(split, true);
+          });
+        }
+      }
     }
+    el._rpSetSplit = setSplit;
 
     setSplit(split);
 
