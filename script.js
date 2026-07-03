@@ -1,8 +1,8 @@
 /* ========================================
-   Countdown to competition launch: June 15, 2026 00:00 UTC
+   Countdown to competition launch: July 5, 2026 00:00 UTC
    ======================================== */
 (function () {
-  const target = new Date('2026-06-15T00:00:00Z').getTime();
+  const target = new Date('2026-07-05T00:00:00Z').getTime();
 
   function update() {
     const now = Date.now();
@@ -43,7 +43,7 @@
    ======================================== */
 (function () {
   var dates = [
-    '2026-06-15', '2026-07-19', '2026-09-27',
+    '2026-07-05', '2026-07-19', '2026-09-27',
     '2026-10-25', '2026-11-10', '2026-11-25', '2026-12-06'
   ];
   var dots = document.querySelectorAll('.timeline-dot');

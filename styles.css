@@ -526,6 +526,33 @@ img { max-width: 100%; display: block; }
 .track-card ul { margin-top: 14px; padding-left: 18px; font-size: 0.9rem; color: var(--slate); }
 .track-card ul li { margin-bottom: 8px; line-height: 1.6; }
 
+.track-cta {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--lavender-light);
+}
+
+.btn-mint-outline {
+  color: var(--mint-dark);
+  background: transparent;
+  border: 2px solid var(--mint-mid);
+  padding: 10px 24px;
+  font-size: 0.85rem;
+}
+
+.btn-mint-outline:hover {
+  background: rgba(78, 119, 107, 0.08);
+  border-color: var(--mint-dark);
+  color: var(--mint-dark);
+}
+
+.track-cta-note {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
 /* ========================================
    TIMELINE
    ======================================== */
