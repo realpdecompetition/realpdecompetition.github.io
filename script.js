@@ -1,22 +1,43 @@
 /* ========================================
-   Countdown to competition launch: July 5, 2026 00:00 UTC
+   Countdown: auto-rolling multi-phase (UTC).
+   Counts down to the first future target; label follows the phase.
    ======================================== */
 (function () {
-  const target = new Date('2026-07-05T00:00:00Z').getTime();
+  // Each phase ends 23:59:59 UTC on its last day, so the target is the next
+  // day 00:00:00Z. All times are ISO "Z" strings (UTC), never local.
+  const phases = [
+    { target: '2026-07-05T00:00:00Z', label: 'Competition launches in:' },
+    { target: '2026-07-20T00:00:00Z', label: 'Warm-up Phase ends in:' },
+    { target: '2026-09-28T00:00:00Z', label: 'Main Development Phase ends in:' },
+    { target: '2026-10-26T00:00:00Z', label: 'Final Decision Phase ends in:' }
+  ].map(function (p) {
+    return { at: new Date(p.target).getTime(), label: p.label };
+  });
+
+  function setLabel(text) {
+    const label = document.querySelector('.countdown-target');
+    if (label) label.textContent = text;
+  }
 
   function update() {
     const now = Date.now();
-    let diff = target - now;
 
-    if (diff <= 0) {
-      const label = document.querySelector('.countdown-target');
-      if (label) label.textContent = 'Competition is live!';
+    let phase = null;
+    for (let i = 0; i < phases.length; i++) {
+      if (phases[i].at > now) { phase = phases[i]; break; }
+    }
+
+    if (!phase) {
+      setLabel('Competition concluded.');
       ['cd-days', 'cd-hours', 'cd-mins', 'cd-secs'].forEach(function (id) {
         const el = document.getElementById(id);
         if (el) el.textContent = '0';
       });
       return;
     }
+
+    setLabel(phase.label);
+    let diff = phase.at - now;
 
     const d = Math.floor(diff / 86400000); diff %= 86400000;
     const h = Math.floor(diff / 3600000);  diff %= 3600000;
