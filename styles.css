@@ -158,6 +158,64 @@ img { max-width: 100%; display: block; }
   color: #fff;
 }
 
+/* Submit dropdown — Track 1 (live) / Track 2 (coming soon) */
+.nav-submit { position: relative; display: inline-flex; }
+.nav-submit-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: none; cursor: pointer; font-family: inherit;
+  font-size: 0.875rem; font-weight: 500;
+}
+.nav-caret { font-size: 0.7em; line-height: 1; transition: transform 0.3s ease; }
+.nav-submit:hover .nav-caret,
+.nav-submit:focus-within .nav-caret { transform: rotate(180deg); }
+
+.nav-submit-menu {
+  position: absolute; top: 100%; right: 0;
+  margin-top: 12px; min-width: 236px;
+  background: #fff;
+  border: 1px solid rgba(216, 212, 230, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(29, 29, 31, 0.14);
+  padding: 8px;
+  display: flex; flex-direction: column; gap: 4px;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 200;
+}
+.nav-submit-menu::before {
+  content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
+}
+.nav-submit:hover .nav-submit-menu,
+.nav-submit:focus-within .nav-submit-menu {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+
+.nav-submit-menu a,
+.nav-submit-soon {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 10px 14px; border-radius: 11px;
+  font-size: 0.9rem; font-weight: 600; color: var(--carbon);
+  text-decoration: none; white-space: nowrap;
+}
+.nav-links .nav-submit-menu a::after { display: none; }
+.nav-submit-menu a:hover { background: var(--lavender-light); color: var(--carbon); }
+.nav-submit-sub { font-size: 0.72rem; font-weight: 500; color: var(--slate); }
+.nav-submit-soon { opacity: 0.5; cursor: not-allowed; }
+
+@media (max-width: 1100px) {
+  .nav-submit { position: static; display: block; }
+  .nav-submit-toggle { display: none; }
+  .nav-submit-menu {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    margin: 0; min-width: 0; padding: 0;
+    background: transparent; border: none; box-shadow: none;
+  }
+  .nav-submit-menu::before { display: none; }
+  .nav-links .nav-submit-menu a,
+  .nav-submit-soon { padding: 14px 24px; border-radius: 0; }
+  .nav-submit-menu a:hover { background: var(--lavender-light); }
+}
+
 /* Mobile hamburger */
 .nav-toggle {
   display: none;
