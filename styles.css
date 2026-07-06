@@ -290,7 +290,11 @@ img { max-width: 100%; display: block; }
 .hero {
   padding: 64px 24px var(--spacing-lg);
   position: relative;
-  overflow: hidden;
+  /* x stays clipped (flow canvas edges); y must stay visible so the
+     hero CTA cascade can hang below the section edge */
+  overflow-x: clip;
+  overflow-y: visible;
+  z-index: 2;
 }
 
 #hero-flow {
