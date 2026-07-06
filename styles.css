@@ -431,7 +431,12 @@ img { max-width: 100%; display: block; }
 
 /* Hero CTA cascade: click a track button to reveal Register (form) + Codabench */
 .cta-cascade { position: relative; display: inline-flex; }
-.cta-toggle { display: inline-flex; align-items: center; gap: 8px; }
+.cta-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.92rem;
+}
 .cta-caret { font-size: 0.95em; line-height: 1; transition: transform 0.3s ease; }
 .cta-cascade.open .cta-caret { transform: rotate(180deg); }
 .cta-menu {
