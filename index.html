@@ -63,10 +63,15 @@
       <a href="#organizers">Organizers</a>
       <a href="https://realpdebench.github.io" target="_blank">RealPDEBench</a>
       <div class="nav-submit">
-        <button type="button" class="btn-nav nav-submit-toggle" aria-haspopup="true">Submit <span class="nav-caret" aria-hidden="true">▾</span></button>
+        <button type="button" class="btn-nav nav-submit-toggle" aria-haspopup="true">Join <span class="nav-caret" aria-hidden="true">▾</span></button>
         <div class="nav-submit-menu" role="menu">
-          <a href="https://www.codabench.org/competitions/17363/" target="_blank" role="menuitem">Track 1<span class="nav-submit-sub">Sim2Real · Live</span></a>
-          <span class="nav-submit-soon" role="menuitem" aria-disabled="true">Track 2<span class="nav-submit-sub">LTTTA · Coming Soon</span></span>
+          <div class="nav-submit-group" role="presentation">Track 1 · Sim2Real</div>
+          <a href="https://forms.gle/LYeTgUTfr4ygntNu6" target="_blank" rel="noopener" role="menuitem">Register<span class="nav-submit-sub">Team form · Required</span></a>
+          <a href="https://www.codabench.org/competitions/17363/" target="_blank" rel="noopener" role="menuitem">Codabench<span class="nav-submit-sub">Warm-up · Live</span></a>
+          <div class="nav-submit-divider" role="separator"></div>
+          <div class="nav-submit-group" role="presentation">Track 2 · LTTTA</div>
+          <a href="https://forms.gle/qmMYaK5u9r86rPGKA" target="_blank" rel="noopener" role="menuitem">Register<span class="nav-submit-sub">Team form · Open now</span></a>
+          <span class="nav-submit-soon" role="menuitem" aria-disabled="true">Codabench<span class="nav-submit-sub">Coming Soon</span></span>
         </div>
       </div>
     </div>
@@ -95,8 +100,20 @@
     </div>
 
     <div class="hero-actions">
-      <a href="https://www.codabench.org/competitions/17363/" class="btn btn-primary" target="_blank">Submit on Codabench</a>
-      <a href="#" class="btn btn-primary is-soon" aria-disabled="true" title="Track 2 opens later on Codabench">Track 2 · Coming Soon</a>
+      <div class="cta-cascade">
+        <button type="button" class="btn btn-primary cta-toggle" aria-haspopup="true" aria-expanded="false">Track 1 · Sim2Real <span class="cta-caret" aria-hidden="true">▾</span></button>
+        <div class="cta-menu">
+          <a href="https://forms.gle/LYeTgUTfr4ygntNu6" target="_blank" rel="noopener">Register (Required)</a>
+          <a href="https://www.codabench.org/competitions/17363/" target="_blank" rel="noopener">Submit on Codabench</a>
+        </div>
+      </div>
+      <div class="cta-cascade">
+        <button type="button" class="btn btn-primary cta-toggle" aria-haspopup="true" aria-expanded="false">Track 2 · LTTTA <span class="cta-caret" aria-hidden="true">▾</span></button>
+        <div class="cta-menu">
+          <a href="https://forms.gle/qmMYaK5u9r86rPGKA" target="_blank" rel="noopener">Register (Required)</a>
+          <span class="cta-soon" aria-disabled="true">Codabench · Soon</span>
+        </div>
+      </div>
       <a href="https://github.com/AI4Science-WestlakeU/RealPDEBench" class="btn btn-outline" target="_blank">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         RealPDEBench
@@ -170,6 +187,7 @@
     <div class="section-label">Competition Tracks</div>
     <h2 class="section-title">Two <em>Independent</em> Tracks</h2>
     <p class="section-subtitle">Running simultaneously. Participate in one or both.</p>
+    <p class="tracks-register-note"><strong>Registration via the team form is required for both tracks</strong> (deadline: August 20, 2026). Joining on Codabench alone is not registration: after the registration deadline, Codabench join requests without a submitted form will be denied.</p>
     <div class="tracks-grid">
       <!-- Track 1: Sim2Real -->
       <div class="track-card track-card--sim2real">
@@ -181,6 +199,10 @@
           <li>Adapt to noise, limited observability, and distribution shifts in real-world PIV data</li>
           <li>Directly addresses industrial applications: aircraft foil aerodynamics, wind turbine blade optimization</li>
         </ul>
+        <div class="track-cta">
+          <a href="https://forms.gle/LYeTgUTfr4ygntNu6" class="btn btn-mint-outline" target="_blank" rel="noopener">Register</a>
+          <a href="https://www.codabench.org/competitions/17363/" class="btn btn-mint-outline" target="_blank" rel="noopener">Codabench</a>
+        </div>
       </div>
       <!-- Track 2: LTTTA -->
       <div class="track-card track-card--lttta">
@@ -194,7 +216,8 @@
           <li>Models real-world scenarios: sensor monitoring during flight, wind turbine performance tracking</li>
         </ul>
         <div class="track-cta">
-          <a href="#" class="btn btn-mint-outline is-soon" aria-disabled="true" title="Track 2 opens later on Codabench">Track 2 · Coming Soon</a>
+          <a href="https://forms.gle/qmMYaK5u9r86rPGKA" class="btn btn-mint-outline" target="_blank" rel="noopener">Register</a>
+          <a href="#" class="btn btn-mint-outline is-soon" aria-disabled="true" title="Track 2 opens later on Codabench">Codabench · Soon</a>
           <div class="track-cta-note">Track 2 opens later than Track 1 on a dedicated online evaluation system.</div>
         </div>
       </div>
@@ -415,6 +438,7 @@
       </thead>
       <tbody>
         <tr><td><strong>Eligibility</strong></td><td>Open to all individuals and academic/industrial teams worldwide.</td></tr>
+        <tr><td><strong>Registration</strong></td><td>Every team must complete the registration form (Track 1 / Track 2 forms in the Join menu) by <strong>August 20, 2026</strong>. Joining the Codabench competition alone does not count as registration: after the registration deadline, Codabench join requests without a matching form response will be denied.</td></tr>
         <tr><td><strong>Team Size</strong></td><td>Maximum of 3 members per team.</td></tr>
         <tr><td><strong>Submissions</strong></td><td>1 submission per day; 100 total per phase across all participating tracks (per team account).</td></tr>
         <tr><td><strong>LTTTA Agent Use</strong></td><td>Agent-augmented adaptation (e.g., LLM controllers) is permitted in Track 2. Number of agent interaction steps must be explicitly bounded by the protocol, and all agent computation is included in the runtime evaluation.</td></tr>

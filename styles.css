@@ -201,6 +201,12 @@ img { max-width: 100%; display: block; }
 .nav-submit-menu a:hover { background: var(--lavender-light); color: var(--carbon); }
 .nav-submit-sub { font-size: 0.72rem; font-weight: 500; color: var(--slate); }
 .nav-submit-soon { opacity: 0.5; cursor: not-allowed; }
+.nav-submit-group {
+  padding: 8px 14px 2px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--mint-dark);
+}
+.nav-submit-divider { height: 1px; margin: 4px 8px 0; background: var(--lavender-light); }
 
 @media (max-width: 1100px) {
   .nav-submit { position: static; display: block; }
@@ -419,6 +425,53 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
+/* Hero CTA cascade: click a track button to reveal Register (form) + Codabench */
+.cta-cascade { position: relative; display: inline-flex; }
+.cta-toggle { display: inline-flex; align-items: center; gap: 8px; }
+.cta-caret { font-size: 0.95em; line-height: 1; transition: transform 0.3s ease; }
+.cta-cascade.open .cta-caret { transform: rotate(180deg); }
+.cta-menu {
+  position: absolute; top: 100%; left: 0;
+  padding-top: 8px; width: 100%;
+  display: flex; flex-direction: column; gap: 6px;
+  z-index: 150;
+  pointer-events: none;
+}
+.cta-cascade.open .cta-menu,
+.cta-cascade:focus-within .cta-menu { pointer-events: auto; }
+.cta-menu > a,
+.cta-menu > .cta-soon {
+  display: block; width: 100%; box-sizing: border-box;
+  padding: 14px 20px; border-radius: 100px;
+  background: var(--carbon); color: #fff;
+  font-size: 1rem; font-weight: 500;
+  text-decoration: none; white-space: nowrap; text-align: center;
+  opacity: 0; visibility: hidden; transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+.cta-menu > *:nth-child(2) { transition-delay: 0.06s; }
+.cta-cascade.open .cta-menu > a,
+.cta-cascade.open .cta-menu > .cta-soon,
+.cta-cascade:focus-within .cta-menu > a,
+.cta-cascade:focus-within .cta-menu > .cta-soon {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.cta-cascade:focus-within .cta-caret { transform: rotate(180deg); }
+@media (hover: hover) and (pointer: fine) {
+  .cta-cascade:hover .cta-menu { pointer-events: auto; }
+  .cta-cascade:hover .cta-menu > a,
+  .cta-cascade:hover .cta-menu > .cta-soon {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+  .cta-cascade:hover .cta-caret { transform: rotate(180deg); }
+}
+.cta-menu > a:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(29, 29, 31, 0.2);
+  color: #fff;
+}
+.cta-soon { opacity: 0.55; cursor: not-allowed; }
+
 .tag-row {
   display: flex;
   gap: 8px;
@@ -547,6 +600,8 @@ img { max-width: 100%; display: block; }
 }
 
 .track-card {
+  display: flex;
+  flex-direction: column;
   background: white;
   border-radius: 20px;
   padding: 36px;
@@ -585,10 +640,26 @@ img { max-width: 100%; display: block; }
 .track-card ul li { margin-bottom: 8px; line-height: 1.6; }
 
 .track-cta {
-  margin-top: 22px;
+  margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid var(--lavender-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
 }
+.track-cta .track-cta-note { width: 100%; text-align: center; }
+.track-card > ul { margin-bottom: 22px; }
+
+.tracks-register-note {
+  color: var(--slate);
+  margin: 0 0 var(--spacing-md);
+  max-width: 760px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.tracks-register-note strong { color: var(--mint-dark); font-weight: 600; }
 
 .btn-mint-outline {
   color: var(--mint-dark);

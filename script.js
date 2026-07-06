@@ -469,3 +469,36 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
   if (window.ResizeObserver) new ResizeObserver(schedule).observe(inner);
   window.addEventListener('load', schedule);
 })();
+
+/* Hero CTA cascade: hover expands on desktop (pure CSS); click toggle is the
+   touch-device fallback, so skip binding when a fine hover pointer exists. */
+(function () {
+  if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var cascades = Array.prototype.slice.call(document.querySelectorAll('.cta-cascade'));
+  if (!cascades.length) return;
+  function closeAll(except) {
+    cascades.forEach(function (c) {
+      if (c === except) return;
+      c.classList.remove('open');
+      var b = c.querySelector('.cta-toggle');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  cascades.forEach(function (c) {
+    var btn = c.querySelector('.cta-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var opening = !c.classList.contains('open');
+      closeAll(opening ? c : null);
+      c.classList.toggle('open', opening);
+      btn.setAttribute('aria-expanded', String(opening));
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!(e.target.closest && e.target.closest('.cta-cascade'))) closeAll(null);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeAll(null);
+  });
+})();
