@@ -604,8 +604,6 @@ img { max-width: 100%; display: block; }
 }
 
 .track-card {
-  display: flex;
-  flex-direction: column;
   background: white;
   border-radius: 20px;
   padding: 36px;
@@ -644,17 +642,10 @@ img { max-width: 100%; display: block; }
 .track-card ul li { margin-bottom: 8px; line-height: 1.6; }
 
 .track-cta {
-  margin-top: auto;
+  margin-top: 22px;
   padding-top: 20px;
   border-top: 1px solid var(--lavender-light);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
 }
-.track-cta .track-cta-note { width: 100%; text-align: center; }
-.track-card > ul { margin-bottom: 22px; }
 
 .tracks-register-note {
   color: var(--slate);
