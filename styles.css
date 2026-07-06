@@ -158,7 +158,7 @@ img { max-width: 100%; display: block; }
   color: #fff;
 }
 
-/* Submit dropdown — Track 1 (live) / Track 2 (coming soon) */
+/* Submit dropdown — black pill cascade per track */
 .nav-submit { position: relative; display: inline-flex; }
 .nav-submit-toggle {
   display: inline-flex; align-items: center; gap: 6px;
@@ -190,17 +190,20 @@ img { max-width: 100%; display: block; }
   opacity: 1; visibility: visible; transform: translateY(0);
 }
 
-.nav-submit-menu a,
-.nav-submit-soon {
-  display: flex; flex-direction: column; gap: 2px;
-  padding: 10px 14px; border-radius: 11px;
-  font-size: 0.9rem; font-weight: 600; color: var(--carbon);
-  text-decoration: none; white-space: nowrap;
+.nav-submit-menu a {
+  display: block; width: 100%; box-sizing: border-box;
+  padding: 11px 16px; border-radius: 100px;
+  background: var(--carbon); color: #fff;
+  font-size: 0.875rem; font-weight: 500;
+  text-decoration: none; white-space: nowrap; text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .nav-links .nav-submit-menu a::after { display: none; }
-.nav-submit-menu a:hover { background: var(--lavender-light); color: var(--carbon); }
-.nav-submit-sub { font-size: 0.72rem; font-weight: 500; color: var(--slate); }
-.nav-submit-soon { opacity: 0.5; cursor: not-allowed; }
+.nav-submit-menu a:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(29, 29, 31, 0.2);
+  color: #fff;
+}
 .nav-submit-group {
   padding: 8px 14px 2px;
   font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
@@ -217,9 +220,8 @@ img { max-width: 100%; display: block; }
     background: transparent; border: none; box-shadow: none;
   }
   .nav-submit-menu::before { display: none; }
-  .nav-links .nav-submit-menu a,
-  .nav-submit-soon { padding: 14px 24px; border-radius: 0; }
-  .nav-submit-menu a:hover { background: var(--lavender-light); }
+  .nav-links .nav-submit-menu a { width: auto; margin: 2px 20px; }
+  .nav-submit-menu a:hover { transform: none; box-shadow: none; }
 }
 
 /* Mobile hamburger */
