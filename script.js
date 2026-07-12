@@ -502,3 +502,23 @@ document.querySelectorAll('.nav-links a').forEach(function (a) {
     if (e.key === 'Escape') closeAll(null);
   });
 })();
+
+/* Citation copy buttons */
+(function () {
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.cite-copy'));
+  if (!buttons.length) return;
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = document.getElementById(btn.getAttribute('data-target'));
+      if (!pre || !navigator.clipboard) return;
+      navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
+        btn.classList.add('copied');
+        btn.textContent = 'Copied';
+        setTimeout(function () {
+          btn.classList.remove('copied');
+          btn.textContent = 'Copy';
+        }, 1600);
+      });
+    });
+  });
+})();

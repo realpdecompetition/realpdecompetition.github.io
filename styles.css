@@ -426,9 +426,10 @@ img { max-width: 100%; display: block; }
 }
 
 /* Hero CTA cascade: click a track button to reveal Register (form) + Codabench */
-.cta-cascade { position: relative; display: inline-flex; }
+.cta-cascade { position: relative; display: inline-flex; width: 270px; }
 .cta-toggle {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.92rem;
@@ -593,6 +594,85 @@ img { max-width: 100%; display: block; }
   font-size: 0.9rem;
   color: var(--slate);
   line-height: 1.65;
+}
+
+/* ========================================
+   CITATION
+   ======================================== */
+.cite-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.cite-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--lavender-light);
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cite-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cite-card-head h3 {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.cite-venue {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--mint-dark);
+}
+
+.cite-copy {
+  margin-left: auto;
+  flex-shrink: 0;
+  border: 1px solid var(--lavender-main);
+  background: transparent;
+  color: var(--slate);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cite-copy:hover {
+  border-color: var(--mint-mid);
+  color: var(--mint-dark);
+}
+
+.cite-copy.copied {
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
+  color: #fff;
+}
+
+.cite-bib {
+  flex: 1;
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--lavender-light);
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-family: var(--font-mono, "SFMono-Regular", monospace);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--carbon);
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* ========================================
