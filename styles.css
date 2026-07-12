@@ -920,19 +920,28 @@ img { max-width: 100%; display: block; }
    FOOTER
    ======================================== */
 /* Lab badge — organizers attribution */
-.lab-badge-row { display: flex; justify-content: center; }
+.lab-badge-row { display: flex; justify-content: center; margin-top: 48px; }
 .lab-badge {
   display: inline-flex; align-items: center; gap: 12px;
-  padding: 8px 20px 8px 10px;
+  padding: 10px 24px 10px 12px;
   background: #fff;
-  border: 1px solid var(--lavender-main);
   border-radius: 100px;
   text-decoration: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 12px rgba(29, 29, 31, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .lab-badge img { width: 36px; height: 36px; display: block; }
 .lab-badge span { font-size: 0.95rem; font-weight: 600; color: var(--carbon); white-space: nowrap; }
-.lab-badge:hover { border-color: var(--mint-mid); box-shadow: 0 6px 18px rgba(29, 29, 31, 0.08); }
+.lab-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(29, 29, 31, 0.1);
+}
+.lab-credit {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--slate);
+  margin-top: 14px;
+}
 
 footer {
   background: var(--carbon);
