@@ -320,19 +320,33 @@ img { max-width: 100%; display: block; }
 }
 
 /* Section pre-label */
+/* Solid mint pill: as plain slate text this line disappeared into the flow-field
+   background, and the NeurIPS venue is the hero's strongest credential. */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: var(--slate);
-  font-size: 0.82rem;
-  font-weight: 600;
+  gap: 9px;
+  color: #fff;
+  background: var(--accent-bright);
+  font-size: 1.05rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+  padding: 11px 24px;
+  border-radius: 100px;
+  box-shadow: 0 8px 26px rgba(52, 205, 163, 0.38);
+  margin-bottom: 26px;
 }
 
-.hero-badge svg { color: var(--accent); }
+.hero-badge svg { color: #fff; }
+
+@media (max-width: 768px) {
+  .hero-badge {
+    font-size: 0.9rem;
+    padding: 9px 18px;
+    letter-spacing: 0.08em;
+  }
+}
 
 .hero h1 {
   font-family: var(--font-serif);
@@ -632,6 +646,45 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--mint-dark);
+}
+
+.cite-actions {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cite-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--lavender-main);
+  border-radius: 100px;
+  padding: 6px 14px;
+  color: var(--slate);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cite-repo:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cite-repo-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* .cite-copy carries its own margin-left:auto for the no-sibling case; inside the
+   action row that would shove the two buttons apart. */
+.cite-actions .cite-copy {
+  margin-left: 0;
 }
 
 .cite-copy {
