@@ -218,6 +218,12 @@ img { max-width: 100%; display: block; }
   .nav-submit-menu a:hover { background: var(--lavender-light); }
 }
 
+/* Menu open: pin the page so a swipe over the drawer can't scroll the content behind it.
+   overscroll-behavior on the drawer only covers the case where the drawer itself scrolls;
+   WebKit still chains a swipe through to the page when the drawer has nothing to scroll,
+   so the lock has to come from the page side. */
+html.nav-open, html.nav-open body { overflow: hidden; }
+
 /* Mobile hamburger */
 .nav-toggle {
   display: none;
@@ -1466,7 +1472,24 @@ section[id] { scroll-margin-top: 76px; }
     border-bottom: 1px solid rgba(216, 212, 230, 0.3);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
-  .nav-links.open { display: flex; }
+  .nav-links.open {
+    display: flex;
+    max-height: calc(100vh - 60px);
+    /* dvh excludes the in-app browser's dynamic bottom chrome (WeChat etc.);
+       vh above is the fallback for engines that don't support dvh */
+    max-height: calc(100dvh - 60px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Registering is the reason people open this menu, so the track CTAs lead it and stay
+     visible on any phone height. They sit last in source order for the desktop dropdown. */
+  .nav-links .nav-submit {
+    order: -1;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--lavender-light);
+  }
   .nav-links a { padding: 14px 24px; font-size: 1rem; }
   .nav-links a::after { display: none; }
   .nav-links a:not(.btn-nav):hover { background: var(--lavender-light); }
@@ -1475,28 +1498,6 @@ section[id] { scroll-margin-top: 76px; }
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 60px; left: 0; right: 0;
-    background: rgba(249, 249, 252, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(216, 212, 230, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  }
-
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: 14px 24px; font-size: 1rem; }
-  .nav-links a::after { display: none; }
-  .nav-links a:not(.btn-nav):hover { background: var(--lavender-light); }
-  .nav-links .btn-nav { margin: 8px 24px; text-align: center; }
-
-  .nav-toggle { display: block; }
   .tracks-grid { grid-template-columns: 1fr; }
   .prizes-grid { grid-template-columns: 1fr; }
   .countdown-item { min-width: 68px; padding: 10px 14px; }

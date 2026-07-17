@@ -48,10 +48,10 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <a href="#" class="navbar-brand">RealPDECompetition</a>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
     </button>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="#about">About</a>
       <a href="#tracks">Tracks</a>
       <a href="#data">Data</a>

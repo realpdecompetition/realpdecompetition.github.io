@@ -83,11 +83,30 @@
 /* ========================================
    Mobile nav toggle
    ======================================== */
-document.querySelectorAll('.nav-links a').forEach(function (a) {
-  a.addEventListener('click', function () {
-    document.querySelector('.nav-links').classList.remove('open');
+(function () {
+  var nav = document.querySelector('.nav-links');
+  var btn = document.querySelector('.nav-toggle');
+  if (!nav || !btn) return;
+
+  function setOpen(open) {
+    nav.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    document.documentElement.classList.toggle('nav-open', open);
+    // A drawer that kept its last scroll offset would reopen past the track CTAs.
+    if (open) nav.scrollTop = 0;
+  }
+
+  btn.addEventListener('click', function () {
+    setOpen(!nav.classList.contains('open'));
   });
-});
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+  // Resizing past the hamburger breakpoint with the menu open would leave the page locked.
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 1100) setOpen(false);
+  });
+})();
 
 /* ========================================
    Hero Real↔Sim compare slider (ported from realpdebench)
