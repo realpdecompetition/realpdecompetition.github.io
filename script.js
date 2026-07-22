@@ -8,6 +8,7 @@
   const phases = [
     { target: '2026-07-05T00:00:00Z', label: 'Competition launches in:' },
     { target: '2026-07-20T00:00:00Z', label: 'Warm-up Phase ends in:' },
+    { target: '2026-08-20T23:59:59Z', label: 'Registration closes in:' },
     { target: '2026-09-28T00:00:00Z', label: 'Main Development Phase ends in:' },
     { target: '2026-10-26T00:00:00Z', label: 'Final Decision Phase ends in:' }
   ].map(function (p) {
