@@ -325,6 +325,15 @@ html.nav-open, html.nav-open body { overflow: hidden; }
   pointer-events: none;
 }
 
+/* Official NeurIPS lockup above the badge (venue co-brand, kept in original colors) */
+.hero-conf-logo { display: block; width: fit-content; margin-bottom: 22px; }
+.hero-conf-logo img { display: block; height: 72px; width: auto; }
+
+@media (max-width: 768px) {
+  .hero-conf-logo { margin-bottom: 16px; }
+  .hero-conf-logo img { height: 56px; }
+}
+
 /* Section pre-label */
 /* Solid mint pill: as plain slate text this line disappeared into the flow-field
    background, and the NeurIPS venue is the hero's strongest credential. */
