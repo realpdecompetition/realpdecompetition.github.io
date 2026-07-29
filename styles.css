@@ -95,6 +95,12 @@ img { max-width: 100%; display: block; }
   justify-content: space-between;
 }
 
+/* Brand + official NeurIPS lockup co-brand (original colors) */
+.navbar-brand-group { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.navbar-brand-sep { width: 1px; height: 24px; background: rgba(29, 29, 31, 0.18); flex: none; }
+.navbar-conf-logo { display: block; flex: none; }
+.navbar-conf-logo img { display: block; height: 36px; width: auto; }
+
 .navbar-brand {
   font-family: var(--font-sans);
   font-weight: 600;
@@ -325,14 +331,33 @@ html.nav-open, html.nav-open body { overflow: hidden; }
   pointer-events: none;
 }
 
-/* Official NeurIPS lockup opens the hero (venue co-brand, kept in original colors);
-   sized to the footprint of the former mint venue pill it replaced */
-.hero-conf-logo { display: block; width: fit-content; margin-bottom: 26px; }
-.hero-conf-logo img { display: block; width: 332px; height: auto; }
+/* Section pre-label */
+/* Solid mint pill: as plain slate text this line disappeared into the flow-field
+   background, and the NeurIPS venue is the hero's strongest credential. */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #fff;
+  background: var(--accent-bright);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 11px 24px;
+  border-radius: 100px;
+  box-shadow: 0 8px 26px rgba(52, 205, 163, 0.38);
+  margin-bottom: 26px;
+}
+
+.hero-badge svg { color: #fff; }
 
 @media (max-width: 768px) {
-  .hero-conf-logo { margin-bottom: 18px; }
-  .hero-conf-logo img { width: 280px; }
+  .hero-badge {
+    font-size: 0.9rem;
+    padding: 9px 18px;
+    letter-spacing: 0.08em;
+  }
 }
 
 .hero h1 {
