@@ -204,6 +204,12 @@ img { max-width: 100%; display: block; }
 }
 .nav-links .nav-submit-menu a::after { display: none; }
 .nav-submit-menu a:hover { background: var(--lavender-light); color: var(--carbon); }
+.nav-submit-menu .nav-submit-closed {
+  display: block;
+  padding: 10px 14px; border-radius: 11px;
+  font-size: 0.9rem; font-weight: 600; color: rgba(29, 29, 31, 0.45);
+  white-space: nowrap; cursor: default;
+}
 .nav-submit-group {
   padding: 8px 14px 2px;
   font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
@@ -489,6 +495,7 @@ html.nav-open, html.nav-open body { overflow: hidden; }
   opacity: 1; visibility: visible; transform: translateY(0);
 }
 .cta-cascade:focus-within .cta-caret { transform: rotate(180deg); }
+.cta-menu > .cta-closed { background: rgba(29, 29, 31, 0.45); cursor: default; }
 @media (hover: hover) and (pointer: fine) {
   .cta-cascade:hover .cta-menu { pointer-events: auto; }
   .cta-cascade:hover .cta-menu > a,
