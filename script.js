@@ -10,7 +10,8 @@
     { target: '2026-07-20T00:00:00Z', label: 'Warm-up Phase ends in:' },
     { target: '2026-08-20T23:59:59Z', label: 'Registration closes in:' },
     { target: '2026-09-28T00:00:00Z', label: 'Main Development Phase ends in:' },
-    { target: '2026-10-26T00:00:00Z', label: 'Final Decision Phase ends in:' }
+    { target: '2026-10-26T00:00:00Z', label: 'Final Decision Phase ends in:' },
+    { target: '2026-12-11T02:00:00Z', label: 'NeurIPS 2026 session starts in:' }
   ].map(function (p) {
     return { at: new Date(p.target).getTime(), label: p.label };
   });
@@ -66,7 +67,7 @@
 (function () {
   var dates = [
     '2026-07-05', '2026-07-19', '2026-09-27',
-    '2026-10-25', '2026-11-10', '2026-11-25', '2026-12-06'
+    '2026-10-25', '2026-11-10', '2026-11-25', '2026-12-11'
   ];
   var dots = document.querySelectorAll('.timeline-dot');
   var now = new Date();
