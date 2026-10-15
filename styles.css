@@ -114,7 +114,7 @@ img { max-width: 100%; display: block; }
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -217,7 +217,7 @@ img { max-width: 100%; display: block; }
 }
 .nav-submit-divider { height: 1px; margin: 4px 8px 0; background: var(--lavender-light); }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .nav-submit { position: static; display: block; }
   .nav-submit-toggle { display: none; }
   .nav-submit-menu {
@@ -1464,13 +1464,20 @@ section[id] { scroll-margin-top: 76px; }
 /* ========================================
    RESPONSIVE
    ======================================== */
+/* The nav carries 11 links and the Codabench menu: tighten it below 1400px so it never reaches the
+   NeurIPS lockup, and switch to the hamburger at 1200px. */
+@media (max-width: 1399px) {
+  .nav-links { gap: 18px; }
+  .navbar-brand { margin-right: 12px; }
+}
+
 @media (max-width: 1280px) {
   .navbar-inner { padding: 0 16px; }
-  .nav-links { gap: 18px; }
+  .nav-links { gap: 12px; }
   .nav-links a { font-size: 0.85rem; }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .nav-links {
     display: none;
     position: absolute;
@@ -1532,4 +1539,89 @@ section[id] { scroll-margin-top: 76px; }
   width: 768px;
   transform: scale(var(--rp-page-scale, 1));
   transform-origin: top left;
+}
+
+/* ========================================
+   RESULTS PAGE (results.html) and its entry points
+   ======================================== */
+.hero-results { margin: 4px 0 22px; }
+.hero-results-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--mint-dark);
+  background: rgba(52, 205, 163, 0.12);
+  border: 1px solid var(--mint-mid);
+  padding: 9px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.hero-results-link:hover {
+  background: rgba(52, 205, 163, 0.2);
+  border-color: var(--mint-dark);
+  color: var(--mint-dark);
+  text-decoration: none;
+}
+
+.nav-links a[aria-current="page"] { color: var(--carbon); }
+.nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+.results-head { padding-bottom: var(--spacing-md); }
+.results-status {
+  max-width: 760px;
+  background: white;
+  border: 1px solid var(--lavender-main);
+  border-left: 4px solid var(--accent-bright);
+  border-radius: 12px;
+  padding: 16px 22px;
+  color: var(--slate);
+  line-height: 1.7;
+}
+.results-status strong { color: var(--carbon); }
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.results-track-title { font-size: 1.45rem; font-weight: 600; margin-bottom: 14px; }
+.results-table th, .results-table td { padding: 12px 16px; }
+.results-table .results-place {
+  width: 64px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--carbon);
+}
+.results-table .results-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.results-table td.results-num { color: var(--carbon); font-weight: 500; }
+.results-table td.results-sd { color: var(--slate); font-weight: 400; }
+.results-acct { color: var(--slate); font-size: 0.88em; }
+
+.results-notes dl { max-width: 820px; margin-top: 8px; }
+.results-notes dt { font-weight: 700; color: var(--mint-dark); margin-top: 18px; }
+.results-notes dd { margin: 4px 0 0; color: var(--slate); line-height: 1.75; }
+.results-notes ul { margin: 8px 0 0 20px; }
+.results-notes li { margin-top: 6px; }
+.results-foot { margin-top: 28px; color: var(--slate); max-width: 820px; line-height: 1.7; }
+
+@media (max-width: 1100px) {
+  .results-grid { grid-template-columns: 1fr; }
+}
+.results-foot a { white-space: nowrap; }
+
+/* Hero track buttons after participation closed: plain grey, no menu */
+.btn-closed {
+  width: 270px;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.92rem;
+  background: #E3E3E8;
+  color: #9A98A6;
+  cursor: default;
 }

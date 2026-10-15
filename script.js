@@ -70,6 +70,7 @@
     '2026-10-25', '2026-11-10', '2026-11-25', '2026-12-11'
   ];
   var dots = document.querySelectorAll('.timeline-dot');
+  if (!dots.length) return;
   var now = new Date();
 
   dates.forEach(function (d, i) {
@@ -106,7 +107,7 @@
   });
   // Resizing past the hamburger breakpoint with the menu open would leave the page locked.
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 1100) setOpen(false);
+    if (window.innerWidth > 1200) setOpen(false);
   });
 })();
 
